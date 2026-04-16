@@ -1,31 +1,80 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/WTyCYlbL)
-# FIT4012 – Lab 1. Entropy, độ dư thừa thông tin và nghịch đảo modulo
+# FIT4012 – Lab 1: Entropy, Redundancy và Modular Inverse
 
+## Giới thiệu
+Bài lab này thực hiện:
+- Tính entropy của một chuỗi ký tự
+- Tính độ dư thừa thông tin (redundancy)
+- Tìm nghịch đảo modulo bằng thuật toán Euclid mở rộng
 
-## Mục tiêu bài lab
-Sau khi hoàn thành bài này, sinh viên có thể:
-- Đọc hiểu và chạy được chương trình tính entropy của một chuỗi ký tự.
-- Bổ sung chức năng tính độ dư thừa thông tin dựa trên entropy thực tế.
-- Cài đặt hàm tìm nghịch đảo modulo bằng thuật toán Euclid mở rộng.
-- Tổ chức, kiểm thử và nộp bài bằng GitHub repo.
+---
 
-## Cấu trúc repo
-- `src/entropy_redundancy.cpp`: Q1, Q2
-- `src/mod_inverse.cpp`: Q3
-- `tests/test_cases.md`: test cases tối thiểu
-- `logs/run_log.md`: log chạy chương trình
-- `report-page.md`: báo cáo 1 trang
+## Cấu trúc thư mục
 
-## Yêu cầu nộp bài
-Hoàn thiện repo và nộp link GitHub. Repo cần có:
-- `README.md`
-- `report-1page.md`
-- `tests/` với ít nhất 5 test cases
-- `logs/` có kết quả chạy thử
-- mã nguồn hoàn thiện cho Q1, Q2, Q3
+- src/entropy_redundancy.cpp: Tính entropy và redundancy
+- src/mod_inverse.cpp: Tìm nghịch đảo modulo
+- tests/test_cases.md: Các test case
+- logs/run_log.md: Kết quả chạy thử
+- report-page.md: Báo cáo 1 trang
 
-## Gợi ý commit
-- `Complete Q1 entropy walkthrough`
-- `Implement redundancy calculation`
-- `Implement modular inverse with extended Euclid`
-- `Add tests and report`
+---
+
+## Cách chạy chương trình
+
+### Compile
+
+g++ src/entropy_redundancy.cpp -o entropy  
+g++ src/mod_inverse.cpp -o mod_inverse  
+
+### Run
+
+./entropy  
+./mod_inverse  
+
+---
+
+## Ví dụ
+
+### Entropy
+
+Input:
+abcd
+
+Output:
+Entropy: 2  
+Redundancy: 6  
+
+---
+
+### Modular inverse
+
+Input:
+a = 3, m = 7
+
+Output:
+Modular inverse: 5  
+
+---
+
+## Kết quả đạt được
+
+- Hoàn thành Q1: Tính entropy
+- Hoàn thành Q2: Tính redundancy
+- Hoàn thành Q3: Modular inverse bằng Extended Euclid
+- Viết test cases và run log đầy đủ
+
+---
+
+## Kiến thức sử dụng
+
+- Entropy trong lý thuyết thông tin
+- Logarithm cơ số 2
+- Thuật toán Euclid mở rộng
+
+---
+
+## Ghi chú
+
+- Kết quả entropy có thể sai số nhỏ do số thực
+- Redundancy được tính theo công thức:
+  R = log2(256) - H(X)
