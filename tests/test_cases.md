@@ -4,24 +4,24 @@
 
 ## 1. Entropy / Redundancy
 
-- [ ] Input: `aaaa`  
+- [x] Input: `aaaa`  
   Expected: Entropy = 0, Redundancy ≈ 8
 
-- [ ] Input: `abcd`  
+- [x] Input: `abcd`  
   Expected: Entropy ≈ 2, Redundancy ≈ 6
 
-- [ ] Input: `hello world`  
+- [x] Input: `hello world`  
   Expected: Entropy ≈ 2.8 – 3.2, Redundancy ≈ 5 – 5.2
 
 ## 2. Modulo inverse
 
-- [ ] a = 3, m = 7  
+- [x] a = 3, m = 7  
   Expected: 5
 
-- [ ] a = 10, m = 17  
+- [x] a = 10, m = 17  
   Expected: 12
 
-- [ ] a = 6, m = 9  
+- [x] a = 6, m = 9  
   Expected: Không tồn tại nghịch đảo (return -1)
 
 ## 3. Ghi chú
