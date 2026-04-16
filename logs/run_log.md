@@ -2,30 +2,30 @@
 
 ## Entropy / Redundancy
 
-Input: aaaa  
-Entropy: 0  
-Redundancy: 8  
+- [x] Input: aaaa  
+  Entropy: 0  
+  Redundancy: 8  
 
-Input: abcd  
-Entropy: 2  
-Redundancy: 6  
+- [x] Input: abcd  
+  Entropy: 2  
+  Redundancy: 6  
 
-Input: hello world  
-Entropy: ~3.0  
-Redundancy: ~5.0  
+- [x] Input: hello world  
+  Entropy: ~3.0  
+  Redundancy: ~5.0  
 
 ## Modulo inverse
 
-Input: a=3, m=7  
-Output: 5  
-Check: 3 * 5 % 7 = 1  
+- [x] Input: a=3, m=7  
+  Output: 5  
+  Check: 3 * 5 % 7 = 1  
 
-Input: a=10, m=17  
-Output: 12  
-Check: 10 * 12 % 17 = 1  
+- [x] Input: a=10, m=17  
+  Output: 12  
+  Check: 10 * 12 % 17 = 1  
 
-Input: a=6, m=9  
-Output: Không tồn tại (gcd != 1)  
+- [x] Input: a=6, m=9  
+  Output: -1  
 
 ## Điều em học được từ bài lab
 
