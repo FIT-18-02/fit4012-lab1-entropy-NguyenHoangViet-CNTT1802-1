@@ -21,26 +21,14 @@ int mod_inverse(int a, int m) {
     int x, y;
     int g = extended_euclid(a, m, x, y);
 
-    if (g != 1) {
-        return -1;
-    }
+    if (g != 1) return -1;
 
-    // chuẩn hóa kết quả về [0, m-1]
-    x = (x % m + m) % m;
-    return x;
+    return (x % m + m) % m;
 }
 
 int main() {
     int a, m;
     cin >> a >> m;
-
-    int inv = mod_inverse(a, m);
-
-    if (inv == -1) {
-        cout << -1 << endl;
-    } else {
-        cout << inv << endl;
-    }
-
+    cout << mod_inverse(a, m);
     return 0;
 }
