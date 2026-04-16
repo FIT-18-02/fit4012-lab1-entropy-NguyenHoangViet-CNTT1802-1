@@ -31,6 +31,7 @@ double calculate_redundancy(const string &text, int alphabet_size = 256) {
 
     return Hmax - H;
 }
+
 int main() {
     string input;
     cout << "Enter a string of characters: ";
