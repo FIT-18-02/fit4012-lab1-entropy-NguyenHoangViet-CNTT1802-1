@@ -1,52 +1,46 @@
-#include <iostream>
+from pathlib import Path
+import subprocess
+import sys
+import re
 
-using namespace std;
+root = Path('.')
+errors = []
+warnings = []
 
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
-}
+required_files = [
+    'README.md',
+    'report-page.md',
+    'src/entropy_redundancy.cpp',
+    'src/mod_inverse.cpp',
+    'tests/test_cases.md',
+    'logs/run_log.md',
+]
 
-int extended_euclid(int a, int b, int &x, int &y) {
-    if (b == 0) {
-        x = 1;
-        y = 0;
-        return a;
-    }
+for rel in required_files:
+    if not (root / rel).exists():
+        errors.append(f'Thieu file bat buoc: {rel}')
 
-    int x1 = 0, y1 = 0;
-    int g = extended_euclid(b, a % b, x1, y1);
-    x = y1;
-    y = x1 - (a / b) * y1;
-    return g;
-}
+if errors:
+    for e in errors:
+        print(f'::error::{e}')
+    sys.exit(1)
 
-int mod_inverse(int a, int m) {
-    int x, y;
-    int g = extended_euclid(a, m, x, y);
+entropy_code = (root / 'src/entropy_redundancy.cpp').read_text(encoding='utf-8')
+modinv_code = (root / 'src/mod_inverse.cpp').read_text(encoding='utf-8')
 
-    if (g == 1) {
-        return (x % m + m) % m;
-    }
+if 'TODO(student)' in entropy_code:
+    errors.append('src/entropy_redundancy.cpp van con TODO(student).')
+if 'TODO(student)' in modinv_code:
+    errors.append('src/mod_inverse.cpp van con TODO(student).')
 
-    return 0; // KHÔNG dùng return -1
-}
+if 'return -1.0;' in entropy_code:
+    errors.append('calculate_redundancy() chua duoc hoan thien.')
+if re.search(r'int\s+mod_inverse\s*\([^)]*\)\s*\{[^}]*return\s+-1\s*;', modinv_code, flags=re.DOTALL):
+    errors.append('mod_inverse() chua duoc hoan thien.')
 
-int main() {
-    int a = 0, m = 0;
-    cout << "Nhap a, m: ";
-    cin >> a >> m;
+if errors:
+    for e in errors:
+        print(f'::error::{e}')
+    sys.exit(1)
 
-    if (gcd(a, m) != 1) {
-        cout << -1;
-        return 0;
-    }
-
-    int inv = mod_inverse(a, m);
-    cout << inv << '\n';
-    return 0;
-}
+print('::notice::FIT4012 Buổi 2 auto check passed.')
